@@ -1,0 +1,33 @@
+
+// version de laravel instalada 6.20
+// creacion de proyecto en laravel desde composer
+
+composer create-project laravel/laravel mi-proyecto-laravel             // ultima version estable 
+composer create-project laravel/laravel mi-proyecto-laravel 5.5.*       // especificando version 
+
+
+composer install // descarga e instalar paquedes definidos en el archivo composer.lock y composer.json
+
+
+// sistema de Capas , ciclo de vida de una peticion en laravel 
+
+
+
+// correr migraciones 
+
+php artisan migrate  // correr migraciones 
+
+// diferentes parametros para corres migraciones 
+
+  migrate:fresh        Drop all tables and re-run all migrations
+  migrate:install      Create the migration repository
+  migrate:refresh      Reset and re-run all migrations
+  migrate:reset        Rollback all database migrations
+  migrate:rollback     Rollback the last database migration
+  migrate:status       Show the status of each migration
+
+
+
+// verificar rutas 
+
+php artisan route:list
