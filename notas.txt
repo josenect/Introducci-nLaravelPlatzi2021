@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 // version de laravel instalada 6.20
+=======
+
+>>>>>>> 8b93eca05865ae15e5cc870e6f1c5c5c136ce131
 // creacion de proyecto en laravel desde composer
 
 composer create-project laravel/laravel mi-proyecto-laravel             // ultima version estable 
@@ -13,6 +17,7 @@ composer install // descarga e instalar paquedes definidos en el archivo compose
 
 
 
+<<<<<<< HEAD
 // correr migraciones 
 
 php artisan migrate  // correr migraciones 
@@ -31,3 +36,8 @@ php artisan migrate  // correr migraciones
 // verificar rutas 
 
 php artisan route:list
+=======
+
+
+
+>>>>>>> 8b93eca05865ae15e5cc870e6f1c5c5c136ce131
