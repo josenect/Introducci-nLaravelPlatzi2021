@@ -1,0 +1,18 @@
+
+
+// creacion de proyecto en laravel desde composer
+
+composer create-project laravel/laravel mi-proyecto-laravel             // ultima version estable 
+composer create-project laravel/laravel mi-proyecto-laravel 5.5.*       // especificando version 
+
+
+composer install // descarga e instalar paquedes definidos en el archivo composer.lock y composer.json
+
+
+// sistema de Capas , ciclo de vida de una peticion en laravel 
+
+
+
+
+
+
