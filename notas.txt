@@ -31,3 +31,14 @@ php artisan migrate  // correr migraciones
 // verificar rutas 
 
 php artisan route:list
+
+
+// rutas para Laravel web
+
+Route::get('/', 'UserController@index');
+Route::post('users', 'UserController@store')->name('users.store');
+Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
+
+// creacion de controlador 
+
+php artisan make:controller NombreControlador --resource crea el controlador con los metodos que necesita 
