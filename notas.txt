@@ -42,3 +42,61 @@ Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
 // creacion de controlador 
 
 php artisan make:controller NombreControlador --resource crea el controlador con los metodos que necesita 
+
+// link de retornar datos de BD con relaciones https://www.laraveltip.com/obtener-relaciones-de-modelos-automaticamente-en-laravel/
+// creacion del metodo index retornar los datos de una tabla y enviar los con una vista para renderizarlos
+
+    public function index()
+    {
+        $users= User::latest()->get();  ///se consultan los datos en la base de datos 
+ 
+        return view ('users.index',[   // se retorna una vista index que esta ubicado la carpetaresource/view/users/index.blade.php
+                'users'=>$users   // array que va a tener que estar definido en la vista 'users' para luego ser renderizado 
+        ]);
+    }
+
+// crwcion del motodo store para la creacion de un nuevo registro en la BD 
+
+        public function store(Request $request)  // resibimo como parametro el request con la data 
+    {
+         
+        User::create([    // se invoca el modelo y el metodo create y pasamo el objecto  asignando los valores del request 
+
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            
+        ]);   
+
+        return back();  // retornamos la vista
+    }
+
+    // otra forma de generar el envio de datos con menos codigo   https://styde.net/aprende-a-usar-eloquent-el-orm-de-laravel/
+
+    public function store(Request $request){
+    $movie = new Movie;                    // creamos el objecto del modelo  
+    $movie->create($request->all());      // ejecutamos el metodo create y le pasamos el reques con el array a guardar, los datos de esas columnas deben de ser igual que en el modelo
+    return redirect('movie');
+
+}
+
+// metodo para eliminar un registro pasadando un objecto de tipo User
+
+    public function destroy(User $user) // se pasa el objecto competo al metodo el realizar esta forma  el motodo busca ese user en la BD
+    {
+        //
+
+        $user->delete();  // se ejecuta el metodo de eliminar 
+        return back(); // nos devolvemos a la pagian anterior 
+    } 
+
+
+
+    // manejo de modelos en laravel 
+
+    php artisan tinker
+
+    factory(App\User::class,12)->create() // creacion de 12 registros en la base de datos con ayuda de factory que ya esta creado para los usuario..
+
+
+
