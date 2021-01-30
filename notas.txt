@@ -107,6 +107,8 @@ php artisan make:controller NombreControlador --resource crea el controlador con
 
         ]);
 
+        // cierre de proyecto ciclo
+
 
 
 
