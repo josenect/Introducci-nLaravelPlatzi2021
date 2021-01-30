@@ -21,12 +21,19 @@ class UserControlller extends Controller
 
     public function store(Request $request)
     {
-         
+        $request->validate([                                  // validacion de la data o objecto que llega 
+            'name'=>'required',                              // aplica que el nombre sea requerido
+            'email'=>['required','email','unique:users'],    // aplica que el email sea requerido , que sea de tipo email y que ese email sea unico en la tabla user de la BD
+            'password' => ['required','min:8']               // aplica que sea requerido y que sea minimo de 8 carateres 
+
+        ]);
+
+
         User::create([
 
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password)   // encriptacion de clave por un metodo de laravel
             
         ]);   
 
