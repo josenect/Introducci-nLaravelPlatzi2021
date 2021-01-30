@@ -98,5 +98,15 @@ php artisan make:controller NombreControlador --resource crea el controlador con
 
     factory(App\User::class,12)->create() // creacion de 12 registros en la base de datos con ayuda de factory que ya esta creado para los usuario..
 
+// validacion de la data que recibimos para guardar en la bases de datos en este ejemplo se realiza desde el controlador store
+
+        $request->validate([                                  // validacion de la data o objecto que llega 
+            'name'=>'required',                              // aplica que el nombre sea requerido
+            'email'=>['required','email','unique:users'],    // aplica que el email sea requerido , que sea de tipo email y que ese email sea unico en la tabla user de la BD
+            'password' => ['required','min:8']               // aplica que sea requerido y que sea minimo de 8 carateres 
+
+        ]);
+
+
 
 
